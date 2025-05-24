@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/hero-section'
 import { Dock } from '@/components/dock'
 import { Background } from '@/components/background'
 import { WhoamiModal } from '@/components/whoami-modal'
+import { WorkHistoryModal } from '@/components/work-history-modal'
 import { ContactModal } from '@/components/contact-modal'
 import { SkillsModal } from '@/components/skills-modal'
 import { ProjectsModal } from '@/components/projects-modal'
@@ -37,6 +38,11 @@ function App() {
       <WhoamiModal 
         isOpen={activeModal === 'whoami'} 
         onClose={handleCloseModal} 
+      />
+
+      <WorkHistoryModal
+        isOpen={activeModal === 'resume'}
+        onClose={handleCloseModal}
       />
 
       <SkillsModal

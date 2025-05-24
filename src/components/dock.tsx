@@ -13,7 +13,7 @@ interface DockItem {
 
 const dockItems: DockItem[] = [
   { id: "whoami", emoji: "🧠", label: "whoami" },
-  { id: "resume", emoji: "📄", label: "resume" },
+  { id: "resume", emoji: "📄", label: "work history" },
   { id: "skills", emoji: "⚡", label: "skills" },
   { id: "projects", emoji: "🚀", label: "projects" },
   { id: "contact", emoji: "📬", label: "contact" }
