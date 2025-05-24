@@ -10,7 +10,7 @@ import { ProjectsModal } from '@/components/projects-modal'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
-  const [isDark, setIsDark] = useState(true)
+  const [isDark] = useState(true)
   const [activeModal, setActiveModal] = useState<string | null>(null)
 
   useEffect(() => {
