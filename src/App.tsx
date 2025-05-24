@@ -6,6 +6,7 @@ import { Background } from '@/components/background'
 import { WhoamiModal } from '@/components/whoami-modal'
 import { ContactModal } from '@/components/contact-modal'
 import { SkillsModal } from '@/components/skills-modal'
+import { ProjectsSection } from '@/components/ProjectsSection'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
@@ -47,6 +48,11 @@ function App() {
 
       <SkillsModal
         isOpen={activeModal === 'skills'}
+        onClose={handleCloseModal}
+      />
+
+      <ProjectsSection
+        isOpen={activeModal === 'projects'}
         onClose={handleCloseModal}
       />
 
