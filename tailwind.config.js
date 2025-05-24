@@ -8,6 +8,9 @@ export default {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'mono': ['Roboto Mono', 'monospace'],
       },
+      backgroundSize: {
+        '200': '200% 200%',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -60,6 +63,10 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "pulse-slow": "pulse 3s ease-in-out infinite",
         "fade-in": "fadeIn 0.5s ease-in-out",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "in": "in 0.5s ease-out",
+        "out": "out 0.5s ease-in",
       },
       keyframes: {
         shimmer: {
@@ -74,8 +81,26 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+        "in": {
+          "0%": { opacity: "0", transform: "translateY(10px) scale(0.95)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+        },
+        "out": {
+          "0%": { opacity: "1", transform: "scale(1)" },
+          "100%": { opacity: "0", transform: "scale(0.95)" },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate")
+  ],
 } 

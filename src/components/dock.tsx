@@ -1,22 +1,25 @@
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
+interface DockProps {
+  onItemClick: (modalId: string) => void
+}
+
 interface DockItem {
   id: string
   emoji: string
   label: string
-  onClick?: () => void
 }
 
 const dockItems: DockItem[] = [
-  { id: "projects", emoji: "🚀", label: "projects" },
+  { id: "whoami", emoji: "🧠", label: "whoami" },
   { id: "resume", emoji: "📄", label: "resume" },
   { id: "skills", emoji: "⚡", label: "skills" },
-  { id: "uses", emoji: "💡", label: "uses" },
+  { id: "projects", emoji: "🚀", label: "projects" },
   { id: "contact", emoji: "📬", label: "contact" }
 ]
 
-export function Dock() {
+export function Dock({ onItemClick }: DockProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const getItemScale = (index: number) => {
@@ -50,7 +53,7 @@ export function Dock() {
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                onClick={item.onClick}
+                onClick={() => onItemClick(item.id)}
               >
                 <span className="text-3xl select-none">{item.emoji}</span>
                 
