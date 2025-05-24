@@ -37,15 +37,17 @@ const backendSkills: Skill[] = [
 const devopsSkills: Skill[] = [
   { name: "jira", icon: `${iconBasePath}jira.svg`, color: "from-blue-400 to-blue-700" },
   { name: "salesforce", icon: `${iconBasePath}salesforce.svg`, color: "from-blue-500 to-indigo-600" },
-  { name: "servicenow", icon: `🔧`, color: "from-green-500 to-green-700" },
   { name: "zendesk", icon: `${iconBasePath}zendesk.svg`, color: "from-green-400 to-teal-600" },
   { name: "git", icon: `${iconBasePath}git.svg`, color: "from-orange-500 to-red-600" },
   { name: "bash", icon: `${iconBasePath}bash.svg`, color: "from-gray-600 to-gray-800" },
-  { name: "vsc", icon: `${iconBasePath}vsc.svg`, color: "from-blue-500 to-blue-700" }
+  { name: "docker", icon: `${iconBasePath}docker.svg`, color: "from-blue-500 to-blue-700" },
+  { name: "linux", icon: `${iconBasePath}linux.svg`, color: "from-gray-700 to-gray-900" },
+  { name: "nginx", icon: `${iconBasePath}nginx.svg`, color: "from-green-500 to-green-700" }
 ]
 
 const miscSkills: Skill[] = [
   { name: "unity", icon: `${iconBasePath}unity.svg`, color: "from-gray-700 to-gray-900" },
+  { name: "vsc", icon: `${iconBasePath}vsc.svg`, color: "from-blue-500 to-blue-700" },
   { name: "unreal", icon: `${iconBasePath}unreal.svg`, color: "from-purple-500 to-purple-700" },
   { name: "obs", icon: `${iconBasePath}obs.svg`, color: "from-gray-600 to-gray-800" },
   { name: "gen ai", icon: `${iconBasePath}openai.svg`, color: "from-blue-500 to-indigo-700" },
