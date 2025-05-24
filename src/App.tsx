@@ -5,6 +5,7 @@ import { Dock } from '@/components/dock'
 import { Background } from '@/components/background'
 import { WhoamiModal } from '@/components/whoami-modal'
 import { ContactModal } from '@/components/contact-modal'
+import { SkillsModal } from '@/components/skills-modal'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
@@ -42,6 +43,11 @@ function App() {
       <WhoamiModal 
         isOpen={activeModal === 'whoami'} 
         onClose={handleCloseModal} 
+      />
+
+      <SkillsModal
+        isOpen={activeModal === 'skills'}
+        onClose={handleCloseModal}
       />
 
       <ContactModal
