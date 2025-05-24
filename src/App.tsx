@@ -4,6 +4,8 @@ import { HeroSection } from '@/components/hero-section'
 import { Dock } from '@/components/dock'
 import { Background } from '@/components/background'
 import { WhoamiModal } from '@/components/whoami-modal'
+import { ContactModal } from '@/components/contact-modal'
+import { Toaster } from '@/components/ui/sonner'
 
 function App() {
   const [isDark, setIsDark] = useState(true)
@@ -41,6 +43,13 @@ function App() {
         isOpen={activeModal === 'whoami'} 
         onClose={handleCloseModal} 
       />
+
+      <ContactModal
+        isOpen={activeModal === 'contact'}
+        onClose={handleCloseModal}
+      />
+
+      <Toaster />
     </div>
   )
 }

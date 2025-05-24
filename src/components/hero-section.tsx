@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail } from "lucide-react"
 import { RotatingText } from "@/components/textanimations/RotatingText"
 import GradientText from "@/components/textanimations/GradientText/GradientText"
 
@@ -41,18 +39,6 @@ export function HeroSection() {
           />{" "}
           based in florida, usa
         </p>
-      </div>
-
-      <div className="flex gap-4 mt-8">
-        <Button variant="outline" size="icon" className="hover:text-yellow-500">
-          <Github className="h-5 w-5" />
-        </Button>
-        <Button variant="outline" size="icon" className="hover:text-yellow-500">
-          <Linkedin className="h-5 w-5" />
-        </Button>
-        <Button variant="outline" size="icon" className="hover:text-yellow-500">
-          <Mail className="h-5 w-5" />
-        </Button>
       </div>
     </section>
   )
