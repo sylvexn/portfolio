@@ -55,7 +55,7 @@ const PROJECTS: Project[] = [
       { name: "tailwind", category: "frontend" },
       { name: "shadcn ui", category: "frontend" }
     ],
-    repoUrl: "https://github.com/username/portfolio",
+    repoUrl: "https://github.com/sylvexn/portfolio",
     siteUrl: "https://syl.rest",
     icon: "🌐"
   },

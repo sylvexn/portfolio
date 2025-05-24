@@ -124,19 +124,20 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
         }}
       >
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-              work history
-            </DialogTitle>
-            <Button 
-              onClick={handleDownload}
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
-            >
-              <CloudDownload className="h-4 w-4 mr-2" />
-              download
-            </Button>
-          </div>
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+            work history
+          </DialogTitle>
         </DialogHeader>
+        
+        <div className="flex justify-center my-4">
+          <Button 
+            onClick={handleDownload}
+            className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black"
+          >
+            <CloudDownload className="h-4 w-4 mr-2" />
+            download
+          </Button>
+        </div>
         
         <div className="py-6 space-y-8">
           <Card className="bg-background/70 backdrop-blur-sm border-border/30">
