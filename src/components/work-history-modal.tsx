@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { CloudDownload } from "lucide-react"
+import { toast } from "sonner"
 
 interface WorkHistoryModalProps {
   isOpen: boolean
@@ -77,7 +78,36 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
   }, [isOpen])
 
   const handleDownload = () => {
-    console.log("download resume functionality not implemented yet")
+    const resumeUrl = '/blakeb_resume.pdf'
+    
+    fetch(resumeUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to download resume')
+        }
+        return response.blob()
+      })
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', 'blakeb_resume.pdf')
+        document.body.appendChild(link)
+        link.click()
+        link.remove()
+        
+        toast('resume downloaded', {
+          description: 'the resume has been downloaded successfully',
+          icon: '✅',
+        })
+      })
+      .catch(error => {
+        console.error('Error downloading resume:', error)
+        toast('download failed', {
+          description: 'there was an error downloading the resume',
+          icon: '❌',
+        })
+      })
   }
 
   return (
