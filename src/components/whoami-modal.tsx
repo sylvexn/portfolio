@@ -19,13 +19,11 @@ const interests = [
 ]
 
 export function WhoamiModal({ isOpen, onClose }: WhoamiModalProps) {
-  const [imageError, setImageError] = useState(false)
   const [shouldAnimate, setShouldAnimate] = useState(false)
   
   useEffect(() => {
     if (isOpen) {
       setShouldAnimate(false)
-      // Small delay to ensure opacity is set to 0 before animating
       setTimeout(() => setShouldAnimate(true), 10)
     } else {
       setShouldAnimate(false)
@@ -54,22 +52,11 @@ export function WhoamiModal({ isOpen, onClose }: WhoamiModalProps) {
         <div className="py-8 grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1 flex flex-col items-center">
             <div className="w-60 h-60 rounded-full overflow-hidden border-2 border-primary/50 shadow-lg transition-all hover:scale-105 duration-300">
-              {imageError ? (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 text-primary">
-                  <span className="text-6xl">👤</span>
-                </div>
-              ) : (
-                <img 
-                  src="/images/profile-picture.jpg" 
-                  alt="profile picture" 
-                  className="w-full h-full object-cover"
-                  onError={() => setImageError(true)}
-                />
-              )}
-            </div>
-            <div className="mt-5 text-xs text-center text-foreground/60">
-              <p>place your profile image at:</p>
-              <p className="font-mono bg-background/50 px-2 py-1 rounded mt-1">public/images/profile-picture.jpg</p>
+              <img 
+                src="/images/profile-picture.png" 
+                alt="profile picture" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           
