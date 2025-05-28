@@ -167,4 +167,4 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
       </DialogContent>
     </Dialog>
   )
-} 
+}
