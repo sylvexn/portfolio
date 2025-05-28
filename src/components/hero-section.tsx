@@ -23,7 +23,7 @@ export function HeroSection() {
           <GradientText 
             colors={["#fbbf24", "#f59e0b", "#d97706", "#fbbf24"]}
             animationSpeed={6}
-            className="text-5xl md:text-7xl font-bold font-sans"
+            className="text-5xl md:text-7xl font-bold font-sans cursor-default"
           >
             blake b.
           </GradientText>

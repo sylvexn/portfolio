@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
   {
     id: "1",
     title: "keepsake",
-    description: "imgur bothered me, made my own image host. a personal image uploader application that handles sharex uploads and provides a dashboard to view and manage uploaded images.",
+    description: "personal image hosting solution with sharex integration. features a clean dashboard for managing uploads and provides reliable image hosting with custom urls.",
     status: "in production",
     techStack: [
       { name: "typescript", category: "frontend" },

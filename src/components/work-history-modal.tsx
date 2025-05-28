@@ -16,7 +16,6 @@ interface WorkHistoryModalProps {
 interface ExperienceItem {
   title: string
   company: string
-  location: string
   duration: string
   responsibilities: string[]
 }
@@ -25,7 +24,6 @@ const experience: ExperienceItem[] = [
   {
     title: "tier 1 technical support agent",
     company: "Navigate360",
-    location: "remote",
     duration: "feb 2024 - present",
     responsibilities: [
       "provide technical support to customers by troubleshooting and resolving software, hardware, and network related issues.",
@@ -35,7 +33,6 @@ const experience: ExperienceItem[] = [
   {
     title: "tier 1 technical support agent", 
     company: "Affinitiv",
-    location: "remote",
     duration: "jan 2023 - dec 2023",
     responsibilities: [
       "handled customer complaints and escalated issues according to procedures.",
@@ -45,7 +42,6 @@ const experience: ExperienceItem[] = [
   {
     title: "tier 1 technical support agent",
     company: "Logicom USA",
-    location: "remote",
     duration: "jan 2021 - jan 2023", 
     responsibilities: [
       "answered inbound calls to fix and maintain member's home internet.",
@@ -56,7 +52,6 @@ const experience: ExperienceItem[] = [
   {
     title: "tier 1 technical support agent",
     company: "unisys (contract)",
-    location: "remote", 
     duration: "mar 2020 - jan 2021",
     responsibilities: [
       "answer user inquiries regarding computer software or hardware operation to resolve problems.",
@@ -141,17 +136,13 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
         
         <div className="py-6 space-y-8">
           <Card className="bg-background/70 backdrop-blur-sm border-border/30">
-            <CardHeader>
-              <CardTitle className="text-xl text-primary">experience</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 pt-6">
               {experience.map((job, index) => (
                 <div key={index}>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground">{job.title}</h3>
-                      <p className="text-primary font-medium">{job.company}</p>
-                      <p className="text-sm text-muted-foreground">{job.location}</p>
+                      <h3 className="text-lg font-semibold text-primary underline">{job.company}</h3>
+                      <p className="text-foreground font-medium">{job.title}</p>
                     </div>
                     <Badge className="bg-yellow-500/20 text-yellow-600 border-yellow-500/30 self-start sm:self-center">
                       {job.duration}
