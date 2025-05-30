@@ -14,7 +14,7 @@ const interests = [
   { name: "networking", color: "bg-emerald-600 hover:bg-emerald-700" },
   { name: "sysadmin", color: "bg-blue-600 hover:bg-blue-700" },
   { name: "devops", color: "bg-purple-600 hover:bg-purple-700" },
-  { name: "database", color: "bg-rose-600 hover:bg-rose-700" },
+  { name: "agentic AI", color: "bg-rose-600 hover:bg-rose-700" },
   { name: "tech support", color: "bg-teal-600 hover:bg-teal-700" }
 ]
 
@@ -74,7 +74,7 @@ export function WhoamiModal({ isOpen, onClose }: WhoamiModalProps) {
                   <Badge 
                     key={interest.name}
                     className={cn(
-                      "px-3 py-1.5 text-sm text-white font-medium capitalize transition-all duration-300",
+                      "px-3 py-1.5 text-sm text-white font-medium transition-all duration-300",
                       "hover:shadow-md hover:scale-105 border-none",
                       interest.color
                     )}
