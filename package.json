@@ -8,16 +8,16 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "backend:dev": "cd backend && python -m uvicorn main:app --reload --host 127.0.0.1 --port 3501",
-    "backend:install": "cd backend && pip install -r requirements.txt",
-    "backend:setup": "cd backend && python -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+    "backend:dev": "cd backend && python3 -m uvicorn main:app --reload --host 127.0.0.1 --port 3501",
+    "backend:install": "cd backend && pip3 install -r requirements.txt",
+    "backend:setup": "cd backend && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
     "backend:setup:win": "powershell -Command \"cd backend; python -m venv venv; .\\venv\\Scripts\\Activate.ps1; python -m pip install -r requirements.txt\"",
     "backend:dev:win": "powershell -Command \"cd backend; .\\venv\\Scripts\\Activate.ps1; python -m uvicorn main:app --reload --host 127.0.0.1 --port 3501\"",
     "dev:all": "concurrently \"bun run backend:dev\" \"bun run dev\"",
     "setup": "bun install && bun run backend:setup",
     "setup:win": "bun install && bun run backend:setup:win",
     "start": "bun run preview",
-    "backend:start": "cd backend && source venv/bin/activate && python -m uvicorn main:app --host 0.0.0.0 --port 3501"
+    "backend:start": "cd backend && source venv/bin/activate && python3 -m uvicorn main:app --host 0.0.0.0 --port 3501"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
