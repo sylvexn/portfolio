@@ -74,6 +74,22 @@ const PROJECTS: Project[] = [
     siteUrl: "https://map.syl.rest",
     statusUrl: "https://panel.syl.rest/status",
     icon: "🎮"
+  },
+  {
+    id: "4",
+    title: "dexchat",
+    description: "an agentic chatbot that can search a large knowledgebase of pokemon data and answer user queries",
+    status: "in development",
+    techStack: [
+      { name: "react", category: "frontend" },
+      { name: "python", category: "backend" },
+      { name: "postgres", category: "database" },
+      { name: "openrouter", category: "devops" },
+      { name: "agentic ai", category: "devops" }
+    ],
+    repoUrl: "https://github.com/sylvexn/dexchat",
+    siteUrl: "https://dex.syl.rest",
+    icon: "🐉"
   }
 ];
 
@@ -118,6 +134,8 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
         return 'bg-blue-600 hover:bg-blue-700'
       case 'private':
         return 'bg-purple-600 hover:bg-purple-700'
+      case 'in development':
+        return 'bg-orange-600 hover:bg-orange-700'
       default:
         return 'bg-gray-600 hover:bg-gray-700'
     }
@@ -244,7 +262,8 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
                     <Button 
                       variant="outline"
                       className="border-yellow-500/50 text-yellow-500 hover:bg-yellow-500/10"
-                      onClick={() => window.open(currentProject.repoUrl, '_blank')}
+                      disabled={currentProject.status.toLowerCase() === 'in development'}
+                      onClick={() => currentProject.status.toLowerCase() !== 'in development' && window.open(currentProject.repoUrl, '_blank')}
                     >
                       <span className="mr-1">📂</span> repository
                     </Button>
@@ -253,7 +272,8 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
                     <Button 
                       variant="outline"
                       className="border-blue-500/50 text-blue-500 hover:bg-blue-500/10"
-                      onClick={() => window.open(currentProject.siteUrl, '_blank')}
+                      disabled={currentProject.status.toLowerCase() === 'in development'}
+                      onClick={() => currentProject.status.toLowerCase() !== 'in development' && window.open(currentProject.siteUrl, '_blank')}
                     >
                       <span className="mr-1">🌐</span> visit site
                     </Button>

@@ -28,7 +28,7 @@ export function HeroSection() {
             blake b.
           </GradientText>
         </h2>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-sans">
+        <div className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-sans">
           i am a{" "}
           <RotatingText
             texts={developerTitles}
@@ -38,7 +38,7 @@ export function HeroSection() {
             mainClassName="inline-flex"
           />{" "}
           based in florida, usa
-        </p>
+        </div>
       </div>
     </section>
   )
