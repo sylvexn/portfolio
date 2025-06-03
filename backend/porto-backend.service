@@ -1,0 +1,21 @@
+[Unit]
+Description=Porto Portfolio Backend Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/path/to/your/porto/backend
+Environment=PATH=/path/to/your/porto/backend/venv/bin
+ExecStart=/path/to/your/porto/backend/venv/bin/python -m uvicorn main:app --host 0.0.0.0 --port 3501
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=porto-backend
+
+[Install]
+WantedBy=multi-user.target 

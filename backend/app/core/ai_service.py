@@ -236,7 +236,7 @@ make every response feel like natural conversation while being completely accura
                 response = self.client.chat.completions.create(
                     model=current_model,
                     messages=messages,
-                    max_tokens=500,
+                    max_tokens=10000,
                     temperature=0.3
                 )
                 
