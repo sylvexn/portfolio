@@ -7,7 +7,7 @@ export function HeroSection() {
   const reduceMotion = useReducedMotion()
   const fadeInUp = reduceMotion
     ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.3 } }
-    : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, ease: "easeOut" } }
+    : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, ease: "easeOut" as const } }
 
   return (
     <section className="flex flex-col items-center justify-center min-h-screen text-center space-y-8 px-4">
