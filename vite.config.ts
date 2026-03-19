@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     port: 3500,
-    host: true
+    host: true,
+    allowedHosts: ["fridge"],
   },
   resolve: {
     alias: {

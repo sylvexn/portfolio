@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", "system-ui", "sans-serif";
-  --font-mono: "Roboto Mono", "monospace";
+  --font-sans: "Sora", "system-ui", "sans-serif";
+  --font-mono: "IBM Plex Mono", "monospace";
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -35,35 +35,33 @@
 
 :root {
   --radius: 0.625rem;
-  
-  /* Dark theme as default - Stone base with Amber primary */
-  --background: hsl(20 14.3% 4.1%);
-  --foreground: hsl(60 9.1% 97.8%);
-  
-  --card: hsl(24 9.8% 10%);
-  --card-foreground: hsl(60 9.1% 97.8%);
-  
-  --popover: hsl(20 14.3% 4.1%);
-  --popover-foreground: hsl(60 9.1% 97.8%);
-  
-  /* Amber primary */
-  --primary: hsl(45 93% 47%);
-  --primary-foreground: hsl(26 83.3% 14.1%);
-  
-  --secondary: hsl(12 6.5% 15.1%);
-  --secondary-foreground: hsl(60 9.1% 97.8%);
-  
-  --muted: hsl(12 6.5% 15.1%);
-  --muted-foreground: hsl(24 5.4% 63.9%);
-  
-  --accent: hsl(12 6.5% 15.1%);
-  --accent-foreground: hsl(60 9.1% 97.8%);
-  
+
+  --background: hsl(224 30% 5%);
+  --foreground: hsl(84 22% 95%);
+
+  --card: hsl(222 27% 8%);
+  --card-foreground: hsl(84 22% 95%);
+
+  --popover: hsl(222 27% 8%);
+  --popover-foreground: hsl(84 22% 95%);
+
+  --primary: hsl(72 100% 63%);
+  --primary-foreground: hsl(224 34% 7%);
+
+  --secondary: hsl(218 24% 13%);
+  --secondary-foreground: hsl(84 22% 95%);
+
+  --muted: hsl(218 24% 13%);
+  --muted-foreground: hsl(205 10% 73%);
+
+  --accent: hsl(214 28% 18%);
+  --accent-foreground: hsl(84 22% 95%);
+
   --destructive: hsl(0 72.2% 50.6%);
-  
-  --border: hsl(12 6.5% 15.1%);
-  --input: hsl(12 6.5% 15.1%);
-  --ring: hsl(35.5 91.7% 32.9%);
+
+  --border: hsl(214 23% 21%);
+  --input: hsl(214 23% 21%);
+  --ring: hsl(72 100% 63%);
 }
 
 @layer base {
@@ -75,12 +73,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
   }
 }
 
-/* Custom utility classes */
 .text-shimmer {
-  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
+  background: linear-gradient(45deg, #dcff5c, #d9ff3f, #9adf00, #dcff5c);
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -89,9 +87,10 @@
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(150deg, rgb(9 16 31 / 82%), rgb(17 23 41 / 88%));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(111 133 182 / 28%);
+  box-shadow: 0 18px 45px -24px rgb(0 0 0 / 90%);
 }
 
 .wave-animation {
@@ -99,15 +98,26 @@
   transform-origin: 70% 70%;
 }
 
-/* Gradient background */
 .gradient-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: 
-    radial-gradient(ellipse at 20% 30%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(217, 119, 6, 0.05) 0%, transparent 50%),
-    hsl(20 14.3% 4.1%);
+  background:
+    radial-gradient(ellipse at 18% 26%, rgb(163 255 38 / 14%) 0%, transparent 42%),
+    radial-gradient(ellipse at 82% 72%, rgb(46 95 255 / 16%) 0%, transparent 48%),
+    linear-gradient(180deg, rgb(4 10 22) 0%, rgb(6 10 17) 60%, rgb(3 8 15) 100%);
+}
+
+.gradient-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(149 174 255 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(149 174 255 / 7%) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black 28%, transparent 82%);
+  pointer-events: none;
 }
 
 @keyframes wave {
@@ -131,4 +141,15 @@
 
 .animate-gradient {
   animation: gradient 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

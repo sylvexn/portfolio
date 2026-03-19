@@ -33,7 +33,7 @@ const itemVariants = {
 export function WhoamiModal({ isOpen, onClose }: WhoamiModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] lg:max-w-5xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/50">
+      <DialogContent className="max-w-[95%] lg:max-w-5xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             whoami
@@ -50,13 +50,13 @@ export function WhoamiModal({ isOpen, onClose }: WhoamiModalProps) {
             className="md:col-span-1 flex flex-col items-center"
             variants={itemVariants}
           >
-            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-primary/50 shadow-lg transition-transform hover:scale-105 duration-300 bg-muted flex items-center justify-center">
+            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-primary/55 shadow-lg transition-transform hover:scale-105 duration-300 bg-muted flex items-center justify-center">
               <span className="text-6xl md:text-7xl">👨‍💻</span>
             </div>
           </motion.div>
 
           <motion.div className="md:col-span-3" variants={itemVariants}>
-            <Card className="bg-card/50 border-border/30 h-full">
+            <Card className="bg-card/60 border-border/40 h-full">
               <CardContent className="pt-6 space-y-6">
                 <h3 className="text-2xl font-medium text-primary">
                   hi, i'm {bio.name.split(' ')[0].toLowerCase()}!

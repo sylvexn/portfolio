@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useSpring, useTransform, type MotionValue } from 'framer-motion'
+import { motion, useReducedMotion, useSpring, useTransform, type MotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface DockProps {
@@ -24,10 +24,12 @@ function DockIcon({
   item,
   mouseX,
   onClick,
+  reduceMotion,
 }: {
   item: DockItem
   mouseX: MotionValue<number>
   onClick: () => void
+  reduceMotion: boolean
 }) {
   const ref = useRef<HTMLButtonElement>(null)
 
@@ -36,7 +38,7 @@ function DockIcon({
     return val - bounds.x - bounds.width / 2
   })
 
-  const widthSync = useTransform(distance, [-150, 0, 150], [64, 80, 64])
+  const widthSync = useTransform(distance, [-150, 0, 150], [62, 78, 62])
   const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 150,
@@ -49,12 +51,15 @@ function DockIcon({
       style={{ width, height: width }}
       className={cn(
         "relative flex items-center justify-center",
-        "rounded-xl transition-colors duration-200",
-        "hover:bg-accent/20 cursor-pointer group",
+        "rounded-md transition-colors duration-200",
+        "hover:bg-accent/45 cursor-pointer group border border-transparent",
+        "hover:border-primary/35",
         "focus:outline-none focus:ring-2 focus:ring-primary/50"
       )}
       onClick={onClick}
-      whileTap={{ scale: 0.95 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+      aria-label={item.label}
+      title={item.label}
     >
       <motion.span
         className="text-3xl select-none"
@@ -75,17 +80,18 @@ function DockIcon({
 }
 
 export function Dock({ onItemClick }: DockProps) {
+  const prefersReducedMotion = useReducedMotion()
   const mouseXSpring = useSpring(0, { mass: 0.1, stiffness: 150, damping: 12 })
 
   return (
     <motion.div
       className="fixed bottom-6 left-1/2 z-50"
-      initial={{ y: 100, x: "-50%", opacity: 0 }}
+      initial={prefersReducedMotion ? { x: "-50%", opacity: 0 } : { y: 100, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
-      transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.5 }}
+      transition={prefersReducedMotion ? { duration: 0.2 } : { type: "spring", damping: 20, stiffness: 100, delay: 0.5 }}
     >
       <motion.div
-        className="glass-effect rounded-2xl p-3 shadow-2xl"
+        className="glass-effect rounded-xl p-2.5 shadow-2xl"
         onMouseMove={(e) => mouseXSpring.set(e.pageX)}
         onMouseLeave={() => mouseXSpring.set(0)}
       >
@@ -96,6 +102,7 @@ export function Dock({ onItemClick }: DockProps) {
               item={item}
               mouseX={mouseXSpring}
               onClick={() => onItemClick(item.id)}
+              reduceMotion={Boolean(prefersReducedMotion)}
             />
           ))}
         </div>

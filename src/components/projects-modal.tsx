@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import {
   Dialog,
   DialogContent,
@@ -55,6 +55,7 @@ const slideVariants = {
 }
 
 export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
+  const prefersReducedMotion = useReducedMotion()
   const [[currentIndex, direction], setCurrentIndex] = useState([0, 0])
 
   const project = projects[currentIndex]!
@@ -70,7 +71,7 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/50">
+      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/60">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             projects
@@ -87,7 +88,8 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
                 variant="outline"
                 size="icon"
                 onClick={() => navigate(-1)}
-                className="h-9 w-9 rounded-full"
+                className="h-9 w-9 rounded-sm"
+                aria-label="previous project"
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
@@ -95,7 +97,8 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
                 variant="outline"
                 size="icon"
                 onClick={() => navigate(1)}
-                className="h-9 w-9 rounded-full"
+                className="h-9 w-9 rounded-sm"
+                aria-label="next project"
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -111,12 +114,16 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
-                }}
+                transition={
+                  prefersReducedMotion
+                    ? { duration: 0.18 }
+                    : {
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 },
+                      }
+                }
               >
-                <Card className="overflow-hidden border-border/30 bg-card/50">
+                <Card className="overflow-hidden border-border/40 bg-card/60">
                   <CardHeader>
                     <div className="flex items-center gap-3 flex-wrap">
                       <span className="text-4xl">{project.icon}</span>

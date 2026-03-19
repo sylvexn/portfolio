@@ -42,7 +42,7 @@ function SkillCard({ skill }: { skill: Skill }) {
       whileHover={{ scale: 1.05, y: -2 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
     >
-      <Card className="group hover:border-primary/30 hover:shadow-md hover:shadow-primary/10 transition-all duration-200 bg-card/50 border-border/30">
+      <Card className="group hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 transition-all duration-200 bg-card/60 border-border/40">
         <CardContent className="p-3 flex flex-col items-center gap-2">
           <div
             className={cn(
@@ -100,7 +100,7 @@ function SkillCategory({
 export function SkillsModal({ isOpen, onClose }: SkillsModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] lg:max-w-6xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/50">
+      <DialogContent className="max-w-[95%] lg:max-w-6xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             skills

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface RotatingTextProps {
@@ -14,6 +14,7 @@ export function RotatingText({
   rotationInterval = 2500,
 }: RotatingTextProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,13 +30,11 @@ export function RotatingText({
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}
-          initial={{ y: "100%", opacity: 0 }}
+          initial={prefersReducedMotion ? { opacity: 0 } : { y: "100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
+          exit={prefersReducedMotion ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
           transition={{
-            type: "spring",
-            damping: 25,
-            stiffness: 300,
+            ...(prefersReducedMotion ? { duration: 0.15 } : { type: "spring", damping: 25, stiffness: 300 }),
           }}
           className="inline-block"
         >

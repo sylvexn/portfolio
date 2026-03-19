@@ -9,6 +9,31 @@ export const bio = {
   description: "my background in solving complex technical issues has given me a unique perspective on building robust, user-focused solutions.",
 }
 
+export const heroIdentity = {
+  greeting: "hello world",
+  intro: "my name is",
+  name: bio.name.toLowerCase(),
+  location: `based in ${bio.location.toLowerCase()}`,
+  titles: [
+    "fullstack developer",
+    "devops practitioner",
+    "tech support specialist",
+    "networking and sysadmin enthusiast",
+    "automation-focused builder",
+  ],
+}
+
+export const seo = {
+  title: "blake b. | portfolio",
+  description:
+    "blake b. - fullstack developer and technical support specialist building reliable, user-focused systems in florida, usa",
+  ogTitle: "blake b. | portfolio",
+  ogDescription:
+    "fullstack developer and technical support specialist building reliable systems in florida, usa",
+  ogUrl: "https://syl.rest",
+  themeColor: "#d9ff3f",
+}
+
 export const interests = [
   { name: "fullstack dev", color: "bg-indigo-600 hover:bg-indigo-700" },
   { name: "networking", color: "bg-emerald-600 hover:bg-emerald-700" },

@@ -35,7 +35,7 @@ const itemVariants = {
 export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/50">
+      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             work history
@@ -45,7 +45,7 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
         <div className="flex justify-center my-4">
           <Button
             asChild
-            className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-black font-medium"
+            className="bg-gradient-to-r from-lime-300 to-lime-500 hover:from-lime-200 hover:to-lime-400 text-black font-medium"
           >
             <a
               href={RESUME_URL}
@@ -65,7 +65,7 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
           initial="hidden"
           animate="visible"
         >
-          <Card className="bg-card/50 border-border/30">
+          <Card className="bg-card/60 border-border/40">
             <CardContent className="space-y-6 pt-6">
               {experience.map((job, index) => (
                 <motion.div key={index} variants={itemVariants}>
