@@ -262,14 +262,14 @@ export const contactOptions: ContactOption[] = [
     id: "email",
     icon: "email",
     label: "email",
-    description: "blakeb12341@gmail.com — click to copy",
-    copyValue: "blakeb12341@gmail.com",
+    description: "hello@syl.rest — click to copy",
+    copyValue: "hello@syl.rest",
   },
   {
     id: "mailto",
     icon: "mailto",
     label: "send email",
     description: "open in your mail client",
-    href: "mailto:blakeb12341@gmail.com",
+    href: "mailto:hello@syl.rest",
   },
 ]
