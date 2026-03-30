@@ -98,7 +98,6 @@
   --water-1: #38bdf8;
   --water-2: #06b6d4;
   --water-3: #0ea5e9;
-  position: relative;
   border: 1px solid transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
 }

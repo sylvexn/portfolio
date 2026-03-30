@@ -94,45 +94,45 @@ export const experience: ExperienceItem[] = [
 // Skills
 export interface Skill {
   name: string
-  color: string
+  icon: string // key into skillIcons map
 }
 
 export const frontendSkills: Skill[] = [
-  { name: "react", color: "from-blue-400 to-cyan-500" },
-  { name: "javascript", color: "from-yellow-400 to-yellow-600" },
-  { name: "typescript", color: "from-blue-500 to-blue-700" },
-  { name: "html", color: "from-orange-500 to-red-600" },
-  { name: "css", color: "from-blue-400 to-blue-600" },
-  { name: "next.js", color: "from-gray-700 to-gray-900" },
-  { name: "vite", color: "from-purple-500 to-purple-700" },
-  { name: "tailwind", color: "from-cyan-400 to-blue-500" },
+  { name: "react", icon: "react" },
+  { name: "javascript", icon: "javascript" },
+  { name: "typescript", icon: "typescript" },
+  { name: "html", icon: "html" },
+  { name: "css", icon: "css" },
+  { name: "next.js", icon: "nextjs" },
+  { name: "vite", icon: "vite" },
+  { name: "tailwind", icon: "tailwind" },
 ]
 
 export const backendSkills: Skill[] = [
-  { name: "python", color: "from-blue-500 to-green-500" },
-  { name: "node.js", color: "from-green-500 to-green-700" },
-  { name: "sqlite", color: "from-blue-400 to-indigo-600" },
-  { name: "postgresql", color: "from-blue-600 to-indigo-800" },
+  { name: "python", icon: "python" },
+  { name: "node.js", icon: "nodejs" },
+  { name: "sqlite", icon: "sqlite" },
+  { name: "postgresql", icon: "postgresql" },
 ]
 
 export const devopsSkills: Skill[] = [
-  { name: "jira", color: "from-blue-400 to-blue-700" },
-  { name: "salesforce", color: "from-blue-500 to-indigo-600" },
-  { name: "zendesk", color: "from-green-400 to-teal-600" },
-  { name: "git", color: "from-orange-500 to-red-600" },
-  { name: "bash", color: "from-gray-600 to-gray-800" },
-  { name: "docker", color: "from-blue-500 to-blue-700" },
-  { name: "linux", color: "from-gray-700 to-gray-900" },
-  { name: "nginx", color: "from-green-500 to-green-700" },
+  { name: "jira", icon: "jira" },
+  { name: "salesforce", icon: "salesforce" },
+  { name: "zendesk", icon: "zendesk" },
+  { name: "git", icon: "git" },
+  { name: "bash", icon: "bash" },
+  { name: "docker", icon: "docker" },
+  { name: "linux", icon: "linux" },
+  { name: "nginx", icon: "nginx" },
 ]
 
 export const miscSkills: Skill[] = [
-  { name: "unity", color: "from-gray-700 to-gray-900" },
-  { name: "vscode", color: "from-blue-500 to-blue-700" },
-  { name: "unreal", color: "from-purple-500 to-purple-700" },
-  { name: "obs", color: "from-gray-600 to-gray-800" },
-  { name: "gen ai", color: "from-blue-500 to-indigo-700" },
-  { name: "mcp", color: "from-cyan-500 to-blue-600" },
+  { name: "unity", icon: "unity" },
+  { name: "vscode", icon: "vscode" },
+  { name: "unreal", icon: "unreal" },
+  { name: "obs", icon: "obs" },
+  { name: "gen ai", icon: "genai" },
+  { name: "mcp", icon: "mcp" },
 ]
 
 // Projects
