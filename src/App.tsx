@@ -7,6 +7,7 @@ import { WorkHistoryModal } from '@/components/work-history-modal'
 import { SkillsModal } from '@/components/skills-modal'
 import { ProjectsModal } from '@/components/projects-modal'
 import { ContactModal } from '@/components/contact-modal'
+import { HydrationRing } from '@/components/hydration-ring'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { seo } from '@/data/content'
@@ -41,6 +42,7 @@ function App() {
         </main>
 
         <Dock onItemClick={setActiveModal} />
+        <HydrationRing />
 
         <WhoamiModal isOpen={activeModal === 'whoami'} onClose={handleCloseModal} />
         <WorkHistoryModal isOpen={activeModal === 'resume'} onClose={handleCloseModal} />

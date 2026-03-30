@@ -217,6 +217,22 @@ export const projects: Project[] = [
     siteUrl: "https://dex.syl.rest",
     icon: "🐉",
   },
+  {
+    id: "5",
+    title: "waterh",
+    description: "live hydration dashboard — reverse-engineered smart water bottle BLE protocol, custom collector + API + visualization.",
+    status: "in production",
+    techStack: [
+      { name: "javascript", category: "frontend" },
+      { name: "chart.js", category: "frontend" },
+      { name: "python", category: "backend" },
+      { name: "sqlite", category: "database" },
+      { name: "docker", category: "devops" },
+    ],
+    repoUrl: "https://github.com/sylvexn/water",
+    siteUrl: "https://water.syl.rest",
+    icon: "💧",
+  },
 ]
 
 // Contact
