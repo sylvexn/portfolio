@@ -1,4 +1,4 @@
-const API = 'https://chess-worker.sylvexn.workers.dev/api'
+const API = 'https://chess.syl.rest/api'
 
 export interface GameMove {
   moveNum: number
