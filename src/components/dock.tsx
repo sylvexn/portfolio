@@ -17,7 +17,8 @@ const dockItems: DockItem[] = [
   { id: "resume", emoji: "📄", label: "work history" },
   { id: "skills", emoji: "⚡", label: "skills" },
   { id: "projects", emoji: "🚀", label: "projects" },
-  { id: "contact", emoji: "📬", label: "contact" }
+  { id: "contact", emoji: "📬", label: "contact" },
+  { id: "chess", emoji: "♟️", label: "chess vs. me" }
 ]
 
 function DockIcon({
