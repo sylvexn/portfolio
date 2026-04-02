@@ -210,7 +210,7 @@ export interface ContactOption {
   description: string
   href?: string
   copyValue?: string
-  icon: "github" | "twitter" | "linkedin" | "signal" | "email" | "mailto"
+  icon: "github" | "twitter" | "linkedin" | "signal" | "email" | "message"
 }
 
 export const contactOptions: ContactOption[] = [
@@ -250,10 +250,9 @@ export const contactOptions: ContactOption[] = [
     copyValue: "hello@syl.rest",
   },
   {
-    id: "mailto",
-    icon: "mailto",
-    label: "send email",
-    description: "open in your mail client",
-    href: "mailto:hello@syl.rest",
+    id: "message",
+    icon: "message",
+    label: "message me",
+    description: "send me a direct message",
   },
 ]
