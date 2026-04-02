@@ -226,6 +226,68 @@
   animation: gradient 8s linear infinite;
 }
 
+/* Chess widget effects */
+.chess-widget {
+  --chess-1: #f59e0b;
+  --chess-2: #d97706;
+  --chess-3: #b45309;
+  border: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.chess-widget::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    var(--chess-angle, 0deg),
+    transparent 20%,
+    var(--chess-1) 40%,
+    var(--chess-2) 60%,
+    var(--chess-3) 80%,
+    transparent 100%
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: chess-border-flow 3s linear infinite;
+  pointer-events: none;
+}
+
+.chess-widget:hover::before {
+  opacity: 1;
+}
+
+.chess-widget:hover {
+  box-shadow:
+    0 18px 45px -24px rgb(0 0 0 / 90%),
+    0 0 20px -4px rgb(245 158 11 / 25%),
+    0 0 40px -8px rgb(217 119 6 / 15%);
+}
+
+@keyframes chess-border-flow {
+  to { --chess-angle: 360deg; }
+}
+
+@property --chess-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes chess-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes chess-glow {
+  0%, 100% { box-shadow: 0 0 8px -2px rgb(245 158 11 / 30%); }
+  50% { box-shadow: 0 0 20px -4px rgb(245 158 11 / 50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

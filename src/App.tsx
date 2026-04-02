@@ -8,6 +8,8 @@ import { SkillsModal } from '@/components/skills-modal'
 import { ProjectsModal } from '@/components/projects-modal'
 import { ContactModal } from '@/components/contact-modal'
 import { HydrationRing } from '@/components/hydration-ring'
+import { ChessWidget } from '@/components/chess/chess-widget'
+import { ChessModal } from '@/components/chess/chess-modal'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { seo } from '@/data/content'
@@ -43,12 +45,14 @@ function App() {
 
         <Dock onItemClick={setActiveModal} />
         <HydrationRing />
+        <ChessWidget onOpen={() => setActiveModal('chess')} />
 
         <WhoamiModal isOpen={activeModal === 'whoami'} onClose={handleCloseModal} />
         <WorkHistoryModal isOpen={activeModal === 'resume'} onClose={handleCloseModal} />
         <SkillsModal isOpen={activeModal === 'skills'} onClose={handleCloseModal} />
         <ProjectsModal isOpen={activeModal === 'projects'} onClose={handleCloseModal} />
         <ContactModal isOpen={activeModal === 'contact'} onClose={handleCloseModal} />
+        <ChessModal isOpen={activeModal === 'chess'} onClose={handleCloseModal} />
 
         <Toaster />
       </div>
