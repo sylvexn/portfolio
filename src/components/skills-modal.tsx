@@ -214,7 +214,7 @@ function SkillCategory({
 export function SkillsModal({ isOpen, onClose }: SkillsModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] sm:max-w-lg max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
+      <DialogContent className="max-w-[95%] sm:max-w-lg max-h-[85dvh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             skills

@@ -55,12 +55,14 @@ function DockIcon({
   onClick,
   reduceMotion,
   chessGame,
+  compact,
 }: {
   item: DockItem
   mouseX: MotionValue<number>
   onClick: () => void
   reduceMotion: boolean
   chessGame?: GameState | null
+  compact: boolean
 }) {
   const ref = useRef<HTMLButtonElement>(null)
   const [hovered, setHovered] = useState(false)
@@ -71,7 +73,9 @@ function DockIcon({
     return val - bounds.x - bounds.width / 2
   })
 
-  const widthSync = useTransform(distance, [-150, 0, 150], [62, 78, 62])
+  const baseSize = compact ? 46 : 62
+  const hoverSize = compact ? 52 : 78
+  const widthSync = useTransform(distance, [-150, 0, 150], [baseSize, hoverSize, baseSize])
   const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 150,
@@ -105,8 +109,8 @@ function DockIcon({
         {item.emoji}
       </motion.span>
 
-      {/* Chess gets a special hover preview */}
-      {isChess ? (
+      {/* Hover tooltips - hidden on touch/mobile */}
+      {!compact && (isChess ? (
         <AnimatePresence>
           {hovered && <ChessHoverPreview game={chessGame ?? null} />}
         </AnimatePresence>
@@ -116,7 +120,7 @@ function DockIcon({
             {item.label}
           </div>
         </div>
-      )}
+      ))}
     </motion.button>
   )
 }
@@ -125,6 +129,14 @@ export function Dock({ onItemClick }: DockProps) {
   const prefersReducedMotion = useReducedMotion()
   const mouseXSpring = useSpring(0, { mass: 0.1, stiffness: 150, damping: 12 })
   const [chessGame, setChessGame] = useState<GameState | null>(null)
+  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)')
+    const handler = (e: MediaQueryListEvent) => setCompact(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   const fetchChess = useCallback(async () => {
     try {
@@ -140,17 +152,17 @@ export function Dock({ onItemClick }: DockProps) {
 
   return (
     <motion.div
-      className="fixed bottom-6 left-1/2 z-50"
+      className="fixed bottom-4 sm:bottom-6 left-1/2 z-50"
       initial={prefersReducedMotion ? { x: "-50%", opacity: 0 } : { y: 100, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={prefersReducedMotion ? { duration: 0.2 } : { type: "spring", damping: 20, stiffness: 100, delay: 0.5 }}
     >
       <motion.div
-        className="glass-effect rounded-xl p-2.5 shadow-2xl"
+        className="glass-effect rounded-xl p-1.5 sm:p-2.5 shadow-2xl"
         onMouseMove={(e) => mouseXSpring.set(e.pageX)}
         onMouseLeave={() => mouseXSpring.set(0)}
       >
-        <div className="flex items-end gap-1">
+        <div className="flex items-end gap-0.5 sm:gap-1">
           {dockItems.map((item) => (
             <DockIcon
               key={item.id}
@@ -159,6 +171,7 @@ export function Dock({ onItemClick }: DockProps) {
               onClick={() => onItemClick(item.id)}
               reduceMotion={Boolean(prefersReducedMotion)}
               chessGame={item.id === 'chess' ? chessGame : undefined}
+              compact={compact}
             />
           ))}
         </div>

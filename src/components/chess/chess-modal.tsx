@@ -292,7 +292,7 @@ export function ChessModal({ isOpen, onClose }: ChessModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/60">
+      <DialogContent className="max-w-[95%] lg:max-w-4xl max-h-[85dvh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/60">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             chess vs. me
@@ -318,8 +318,8 @@ export function ChessModal({ isOpen, onClose }: ChessModalProps) {
 
               <div className="flex flex-col lg:flex-row gap-6">
                 {/* Board */}
-                <motion.div variants={itemVariants} className="shrink-0">
-                  <div className="rounded-lg overflow-hidden shadow-lg w-[360px] h-[360px]">
+                <motion.div variants={itemVariants} className="shrink-0 w-full lg:w-auto">
+                  <div className="rounded-lg overflow-hidden shadow-lg w-full max-w-[360px] aspect-square mx-auto">
                     <Chessboard
                       options={{
                         position: game?.fen,

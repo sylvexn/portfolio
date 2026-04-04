@@ -295,7 +295,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-[95%] sm:max-w-2xl max-h-[85vh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
+      <DialogContent className="max-w-[95%] sm:max-w-2xl max-h-[85dvh] overflow-y-auto bg-background/95 backdrop-blur-md border-border/70">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-shimmer">
             contact
