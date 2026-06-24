@@ -201,6 +201,25 @@ export const projects: Project[] = [
     siteUrl: "https://water.syl.rest",
     icon: "💧",
   },
+  {
+    id: "6",
+    title: "cannoli",
+    description: "pokemon draft tournament league platform — replaces a google sheets + discord workflow with a unified app for drafting, team building, matchup analysis, trading, and stats. real-time websocket drafts, a multi-tab matchup center, trade block, and full admin tooling. the linked site is an interactive demo running on sample season data.",
+    status: "in production",
+    techStack: [
+      { name: "react", category: "frontend" },
+      { name: "typescript", category: "frontend" },
+      { name: "tailwind", category: "frontend" },
+      { name: "shadcn ui", category: "frontend" },
+      { name: "bun", category: "backend" },
+      { name: "elysia", category: "backend" },
+      { name: "websockets", category: "backend" },
+      { name: "sqlite", category: "database" },
+      { name: "docker", category: "devops" },
+    ],
+    siteUrl: "https://mock.cannoli.live",
+    icon: "🏆",
+  },
 ]
 
 // Contact
