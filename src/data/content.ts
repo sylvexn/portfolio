@@ -155,6 +155,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "6",
+    title: "cannoli",
+    description: "pokemon draft tournament league platform — replaces a google sheets + discord workflow with a unified app for drafting, team building, matchup analysis, trading, and stats. real-time websocket drafts, a multi-tab matchup center, trade block, and full admin tooling. the linked site is an interactive demo running on sample season data.",
+    status: "in production",
+    techStack: [
+      { name: "react", category: "frontend" },
+      { name: "typescript", category: "frontend" },
+      { name: "tailwind", category: "frontend" },
+      { name: "shadcn ui", category: "frontend" },
+      { name: "bun", category: "backend" },
+      { name: "elysia", category: "backend" },
+      { name: "websockets", category: "backend" },
+      { name: "sqlite", category: "database" },
+      { name: "docker", category: "devops" },
+    ],
+    siteUrl: "https://mock.cannoli.live",
+    icon: "🏆",
+  },
+  {
     id: "1",
     title: "keepsake",
     description: "personal image hosting solution with sharex integration. features a clean dashboard for managing uploads and provides reliable image hosting with custom urls.",
@@ -202,23 +221,31 @@ export const projects: Project[] = [
     icon: "💧",
   },
   {
-    id: "6",
-    title: "cannoli",
-    description: "pokemon draft tournament league platform — replaces a google sheets + discord workflow with a unified app for drafting, team building, matchup analysis, trading, and stats. real-time websocket drafts, a multi-tab matchup center, trade block, and full admin tooling. the linked site is an interactive demo running on sample season data.",
+    id: "7",
+    title: "escape u",
+    description: "commercial site for a st. augustine escape room venue — three cinematic, story-driven rooms with difficulty ratings, online booking, and group/event packages. features an animated review waterfall and astro view transitions for snappy, app-like page navigation.",
+    status: "in production",
+    techStack: [
+      { name: "astro", category: "frontend" },
+      { name: "typescript", category: "frontend" },
+      { name: "tailwind", category: "frontend" },
+    ],
+    siteUrl: "https://escapeuflorida.com",
+    icon: "🔓",
+  },
+  {
+    id: "8",
+    title: "holtsinger construction",
+    description: "marketing and lead-generation site for a family-owned florida commercial construction company operating since 1982. showcases services from tenant buildouts to custom millwork, with a project inquiry contact form.",
     status: "in production",
     techStack: [
       { name: "react", category: "frontend" },
       { name: "typescript", category: "frontend" },
+      { name: "vite", category: "frontend" },
       { name: "tailwind", category: "frontend" },
-      { name: "shadcn ui", category: "frontend" },
-      { name: "bun", category: "backend" },
-      { name: "elysia", category: "backend" },
-      { name: "websockets", category: "backend" },
-      { name: "sqlite", category: "database" },
-      { name: "docker", category: "devops" },
     ],
-    siteUrl: "https://mock.cannoli.live",
-    icon: "🏆",
+    siteUrl: "https://holtcon.com",
+    icon: "🏗️",
   },
 ]
 
