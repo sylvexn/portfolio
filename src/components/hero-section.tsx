@@ -40,6 +40,17 @@ export function HeroSection() {
         </motion.h2>
 
         <motion.div
+          className="flex justify-end pr-1 md:pr-20"
+          initial={fadeInUp.initial}
+          animate={fadeInUp.animate}
+          transition={{ ...fadeInUp.transition, delay: 0.2 }}
+        >
+          <span className="splash-text font-mono text-[11px] md:text-sm">
+            {heroIdentity.splash}
+          </span>
+        </motion.div>
+
+        <motion.div
           className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           initial={fadeInUp.initial}
           animate={fadeInUp.animate}

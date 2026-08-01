@@ -15,6 +15,7 @@ export const heroIdentity = {
   intro: "my name is",
   name: bio.name.toLowerCase(),
   location: `based in ${bio.location.toLowerCase()}`,
+  splash: "now CompTIA A+ certified!",
   titles: [
     "fullstack developer",
     "devops practitioner",

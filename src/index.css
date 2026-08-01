@@ -181,6 +181,19 @@
   transform-origin: 70% 70%;
 }
 
+/* Minecraft-style splash text on the hero name */
+.splash-text {
+  color: #ffff00;
+  text-shadow: 2px 2px 0 rgb(0 0 0 / 45%);
+  transform: rotate(-8deg);
+  animation: splash-bob 0.9s ease-in-out infinite;
+}
+
+@keyframes splash-bob {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50%      { transform: rotate(-8deg) scale(1.09); }
+}
+
 .gradient-bg {
   position: fixed;
   inset: 0;
