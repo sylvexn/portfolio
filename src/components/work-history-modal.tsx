@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { Download } from 'lucide-react'
-import { experience, RESUME_URL } from '@/data/content'
+import { Download, Award } from 'lucide-react'
+import { experience, RESUME_URL, COMPTIA_URL } from '@/data/content'
 
 interface WorkHistoryModalProps {
   isOpen: boolean
@@ -42,19 +42,30 @@ export function WorkHistoryModal({ isOpen, onClose }: WorkHistoryModalProps) {
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex justify-center my-4">
+        <div className="flex flex-wrap justify-center gap-3 my-4">
           <Button
             asChild
             className="bg-gradient-to-r from-lime-300 to-lime-500 hover:from-lime-200 hover:to-lime-400 text-black font-medium"
           >
             <a
               href={RESUME_URL}
-              download="blakeb_resume.pdf"
+              download="blakeb_resume.docx"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Download className="h-4 w-4 mr-2" />
               download resume
+            </a>
+          </Button>
+
+          <Button asChild variant="outline">
+            <a
+              href={COMPTIA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Award className="h-4 w-4 mr-2" />
+              comptia a+ certificate
             </a>
           </Button>
         </div>

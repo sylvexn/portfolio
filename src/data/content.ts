@@ -1,5 +1,6 @@
-// Resume PDF URL from Cloudflare R2
-export const RESUME_URL = "https://cdn.syl.rest/bbresume_2025-1.pdf"
+// Resume + certificate files from Cloudflare R2
+export const RESUME_URL = "https://cdn.syl.rest/bbresume_2026_NOADDR.docx"
+export const COMPTIA_URL = "https://cdn.syl.rest/CompTIA%20A%2B%20ce%20certificate.pdf"
 
 // Bio / About
 export const bio = {
