@@ -34,21 +34,16 @@ export function HeroSection() {
           transition={{ ...fadeInUp.transition, delay: 0.15 }}
         >
           <span className="text-muted-foreground text-3xl md:text-5xl font-light">{heroIdentity.intro}</span>
-          <GradientText className="text-5xl md:text-7xl font-bold cursor-default uppercase tracking-[0.04em]">
-            {heroIdentity.name}
-          </GradientText>
-        </motion.h2>
-
-        <motion.div
-          className="flex justify-end pr-1 md:pr-20"
-          initial={fadeInUp.initial}
-          animate={fadeInUp.animate}
-          transition={{ ...fadeInUp.transition, delay: 0.2 }}
-        >
-          <span className="splash-text font-mono text-[11px] md:text-sm">
-            {heroIdentity.splash}
+          <span className="relative inline-block">
+            <GradientText className="text-5xl md:text-7xl font-bold cursor-default uppercase tracking-[0.04em]">
+              {heroIdentity.name}
+            </GradientText>
+            {/* hangs off the name's corner; only xl+ has open space out there */}
+            <span className="splash-text absolute top-1/2 left-full ml-5 hidden whitespace-nowrap font-mono text-sm xl:block">
+              {heroIdentity.splash}
+            </span>
           </span>
-        </motion.div>
+        </motion.h2>
 
         <motion.div
           className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
@@ -64,6 +59,18 @@ export function HeroSection() {
           />{" "}
           <br className="sm:hidden" />
           {heroIdentity.location}
+        </motion.div>
+
+        {/* narrower screens: no room beside the name, so it sits in open space below */}
+        <motion.div
+          className="flex justify-end pr-2 xl:hidden"
+          initial={fadeInUp.initial}
+          animate={fadeInUp.animate}
+          transition={{ ...fadeInUp.transition, delay: 0.32 }}
+        >
+          <span className="splash-text font-mono text-[11px] md:text-sm">
+            {heroIdentity.splash}
+          </span>
         </motion.div>
       </motion.div>
     </section>
